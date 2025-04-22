@@ -1,11 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string name)
+Zombie* newZombie(std::string name)//create a new Zombie object on the heap
 {
-	// Zombie* newZombie = new Zombie(name);
-	// return newZombie;
-	return new Zombie(name);
-	// The above line creates a new Zombie object on the heap with the given name and returns a pointer to it.
+	return new Zombie(name);//return a pointer to the new Zombie object
 }
-// This function creates a new Zombie object on the heap with the given name and returns a pointer to it.
-// The Zombie object will be destroyed when the pointer is deleted or goes out of scope.

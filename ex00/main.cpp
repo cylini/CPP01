@@ -1,21 +1,16 @@
 #include "Zombie.hpp"
-// #include "newZombie.cpp"
-// #include "randomChump.cpp"
-// This function creates a Zombie object on the stack with the given name and announces it.
-// The Zombie object will be destroyed automatically when it goes out of scope.
-// The function is defined in the randomChump.cpp file and is included here for completeness.
 
 int main(void)
 {
-	Zombie* zombie1 = newZombie("Foo");
-	zombie1->announce();
-	delete zombie1;
+	Zombie* zombie1 = newZombie("Foo");//create a new Zombie object on the heap
+	zombie1->announce();//call the announce method on the Zombie object
+	delete zombie1;//delete the Zombie object to free up memory
 
-	randomChump("tom");
+	randomChump("tom");//create a Zombie object on the stack
 
-	Zombie* zombie3 = newZombie("dimmy");
-	zombie3->announce();
-	delete zombie3;
+	Zombie* zombie3 = newZombie("dimmy");//create a new Zombie object on the heap
+	zombie3->announce();//call the announce method on the Zombie object
+	delete zombie3;//delete the Zombie object to free up memory
 
 	return 0;
 }
