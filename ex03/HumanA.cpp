@@ -1,9 +1,9 @@
 // HumanA.cpp
 #include "HumanA.hpp"
 
-HumanA::HumanA(const std::string &name, Weapon &weapon) : name(name), weapon(weapon) {}
+HumanA::HumanA(const std::string &name, Weapon &weapon) : _name(name), _weapon(weapon) {} // constructor
 
-void HumanA::attack() const
+void HumanA::attack() const // attack
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

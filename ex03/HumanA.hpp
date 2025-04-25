@@ -8,12 +8,12 @@
 class HumanA
 {
 private:
-	std::string name;
-	Weapon &weapon; // référence = doit toujours exister
+	std::string _name; // type string pour le nom
+	Weapon &_weapon;   // référence = doit toujours exister
 
 public:
-	HumanA(const std::string &name, Weapon &weapon);
-	void attack() const;
+	HumanA(const std::string &name, Weapon &weapon); // constructeur
+	void attack() const;							 // attaque
 };
 
 #endif

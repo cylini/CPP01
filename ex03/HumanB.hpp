@@ -8,13 +8,13 @@
 class HumanB
 {
 private:
-	std::string name;
-	Weapon *weapon; // pointeur = peut être null
+	std::string _name; // type string pour le nom
+	Weapon *_weapon;   // pointeur = peut être null
 
 public:
-	HumanB(const std::string &name);
-	void setWeapon(Weapon &weapon);
-	void attack() const;
+	HumanB(const std::string &name); // constructeur
+	void setWeapon(Weapon &weapon);	 // setter (change l'arme)
+	void attack() const;			 // attaque
 };
 
 #endif

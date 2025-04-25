@@ -4,15 +4,15 @@
 
 int main()
 {
-	Weapon club("crude spiked club");
+	Weapon club("bomb");
 
-	HumanA bob("Bob", club);
+	HumanA bob("Boby", club);
 	bob.attack(); // Bob attacks with their crude spiked club
 	club.setType("some other type of club");
 	bob.attack(); // Bob attacks with their some other type of club
 
 	Weapon knife("sharp knife");
-	HumanB jim("Jim");
+	HumanB jim("Jimy");
 	jim.attack(); // Jim has no weapon
 	jim.setWeapon(knife);
 	jim.attack(); // Jim attacks with their sharp knife

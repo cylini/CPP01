@@ -1,17 +1,17 @@
 // HumanB.cpp
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string &name) : name(name), weapon(0) {}
+HumanB::HumanB(const std::string &name) : _name(name), _weapon(0) {} // constructor
 
-void HumanB::setWeapon(Weapon &weapon)
+void HumanB::setWeapon(Weapon &weapon) // setter (change l'arme)
 {
-	this->weapon = &weapon;
+	this->_weapon = &weapon; // change l'arme
 }
 
-void HumanB::attack() const
+void HumanB::attack() const // attaque
 {
-	if (weapon)
-		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-	else
-		std::cout << name << " has no weapon" << std::endl;
+	if (_weapon)																		 // check if weapon is not null
+		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl; // attack
+	else																				 // if weapon is null
+		std::cout << _name << " has no weapon" << std::endl;							 // no attack
 }

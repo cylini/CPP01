@@ -1,14 +1,13 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) : type(type)
+Weapon::Weapon(const std::string &type) : _type(type) // constructor
 {
-	std::cout << "Weapon constructor called" << std::endl;
 }
-const std::string &Weapon::getType(void) const
+const std::string &Weapon::getType(void) const // getter (capture the type)
 {
-	return (this->type);
+	return (this->_type); // return the type
 }
-void Weapon::setType(std::string newType)
+void Weapon::setType(const std::string &newType) // setter (change the type)
 {
-	this->type = newType;
+	this->_type = newType; // change the type
 }
