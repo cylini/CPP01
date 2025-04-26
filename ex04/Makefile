@@ -1,5 +1,5 @@
 NAME = sed
-SRC = main.cpp 
+SRC = main.cpp check_and_replace.cpp
 INCLUDE = include.hpp
 OBJDIR = obj
 OBJ = $(SRC:%.cpp=$(OBJDIR)/%.o)
