@@ -13,49 +13,28 @@ int main(int argc, char **argv)
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	if (!check_file(filename))
+	if (!check_file(filename)) // Vérifier si le fichier existe
 		return 1;
 	// Ouvrir le fichier d'entrée
 	std::ifstream inputFile(filename.c_str()); // c_str(): convertit std::string en const char*
-	if (!inputFile.is_open())
+	if (!inputFile.is_open())				   // verifie si le fichier est ouvrable
 	{
-		std::cerr << "Error: could not open input file." << std::endl;
+		std::cerr << "Error: could not open input file." << std::endl; // si le fichier n'est pas ouvrable, le msg erreur
 		return 1;
 	}
-
-	// Créer le fichier de sortie
-	std::ofstream outputFile(newfilename.c_str());
-
+	std::ofstream outputFile(newfilename.c_str()); // Créer le fichier de sortie
 	if (!outputFile.is_open())
 	{
 		std::cerr << "Error: could not create output file." << std::endl;
 		inputFile.close();
 		return 1;
 	}
-
-	std::string line;
-
-	// Lire le fichier ligne par ligne
-	while (std::getline(inputFile, line))
-		replaceStrings(outputFile, line, s1, s2);
-	// {
-	// 	size_t pos = 0;
-	// 	// Tant qu'on trouve s1 dans la ligne
-	// 	while ((pos = line.find(s1, pos)) != std::string::npos)
-	// 	{
-	// 		// Remplacer s1 par s2 manuellement
-	// 		line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
-	// 		// Avancer la position pour éviter de boucler infiniment
-	// 		pos += s2.length();
-	// 	}
-
-	// 	// Écrire la ligne modifiée dans le fichier de sortie
-	// 	outputFile << line << std::endl;
-	// }
-
+	std::string line;							  // Variable pour stocker chaque ligne
+	while (std::getline(inputFile, line))		  // Lire le fichier ligne par ligne
+		replaceStrings(outputFile, line, s1, s2); // Remplacer les occurrences de s1 par s2
 	// Fermer les fichiers
-	inputFile.close();
-	outputFile.close();
+	inputFile.close();	// Fermer le fichier d'entrée
+	outputFile.close(); // Fermer le fichier de sortie
 
 	return 0;
 }
