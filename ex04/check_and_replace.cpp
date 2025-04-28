@@ -1,17 +1,5 @@
 #include "include.hpp"
 
-void replaceStrings(std::ofstream &outputFile, const std::string &line, const std::string &s1, const std::string &s2)
-{
-	size_t pos = 0;												// Position de recherche
-	std::string modified = line;								// Copie de la ligne d'origine
-	while ((pos = modified.find(s1, pos)) != std::string::npos) // Trouver la position de la première occurrence de s1
-	{
-		modified = modified.substr(0, pos) + s2 + modified.substr(pos + s1.length()); // Remplacer s1 par s2
-		pos += s2.length();															  // Avancer la position de recherche
-	}
-	outputFile << modified << std::endl; // Écrire la ligne modifiée dans le fichier de sortie
-}
-
 bool check_file(std::string &filename) // Vérifier si le fichier existe et est accessible
 {
 	struct stat file_stat;						  // Structure pour stocker les informations sur le fichier
@@ -36,4 +24,15 @@ bool check_file(std::string &filename) // Vérifier si le fichier existe et est 
 		return false;
 	}
 	return true;
+}
+void replaceStrings(std::ofstream &outputFile, const std::string &line, const std::string &s1, const std::string &s2)
+{
+	size_t pos = 0;												// Position de recherche
+	std::string modified = line;								// Copie de la ligne d'origine
+	while ((pos = modified.find(s1, pos)) != std::string::npos) // Trouver la position de la première occurrence de s1
+	{
+		modified = modified.substr(0, pos) + s2 + modified.substr(pos + s1.length()); // Remplacer s1 par s2
+		pos += s2.length();															  // Avancer la position de recherche
+	}
+	outputFile << modified << std::endl; // Écrire la ligne modifiée dans le fichier de sortie
 }
