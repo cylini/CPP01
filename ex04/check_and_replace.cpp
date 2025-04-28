@@ -12,7 +12,7 @@ void replaceStrings(std::ofstream &outputFile, const std::string &line, const st
 	outputFile << modified << std::endl; // Écrire la ligne modifiée dans le fichier de sortie
 }
 
-bool check_file(std::string &filename)
+bool check_file(std::string &filename) // Vérifier si le fichier existe et est accessible
 {
 	struct stat file_stat;						  // Structure pour stocker les informations sur le fichier
 	if (stat(filename.c_str(), &file_stat) == -1) // Verifier si le fichier existe et est accessible
@@ -28,6 +28,11 @@ bool check_file(std::string &filename)
 	if (!S_ISREG(file_stat.st_mode)) // Vérifier si c'est un fichier régulier
 	{
 		std::cerr << "Error: Not a regular file." << std::endl;
+		return false;
+	}
+	if (!(file_stat.st_mode & S_IRUSR)) // Vérifier si le fichier est lisible par l'utilisateur
+	{
+		std::cerr << "Error: File is not readable." << std::endl;
 		return false;
 	}
 	return true;
